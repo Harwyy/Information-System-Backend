@@ -15,4 +15,6 @@ public interface OrganizationRepository extends JpaRepository<Organization, Long
     List<Organization> findByCoordinatesId(Long coordinatesId);
 
     List<Organization> findByPostalAddressIdOrOfficialAddressId(Long postalAddressId, Long officialAddressId);
+
+    List<Organization> findByName(String name);
 }
