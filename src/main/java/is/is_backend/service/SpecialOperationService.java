@@ -70,6 +70,12 @@ public class SpecialOperationService {
                 calculateMergedAnnualTurnover(organization, firstOrganization, secondOrganization));
         organization.setRating(calculateAverageRating(organization, firstOrganization, secondOrganization));
         organization.setEmployeesCount(calculateTotalEmployees(firstOrganization, secondOrganization));
+        organization.setName(firstOrganization.getName());
+        organization.setCoordinatesId(firstOrganization.getCoordinates().getId());
+        organization.setOfficialAddressId(firstOrganization.getOfficialAddress().getId());
+        organization.setFullName(firstOrganization.getFullName());
+        organization.setType(firstOrganization.getType());
+        organization.setPostalAddressId(firstOrganization.getPostalAddress().getId());
     }
 
     private Float calculateAverageRating(
@@ -116,9 +122,6 @@ public class SpecialOperationService {
         }
         if (joinRequest.getFirstOrganizationId().equals(joinRequest.getSecondOrganizationId())) {
             throw new IllegalArgumentException("Cannot join organization with itself");
-        }
-        if (joinRequest.getOrganization() == null) {
-            throw new IllegalArgumentException("Organization cannot be null");
         }
     }
 
