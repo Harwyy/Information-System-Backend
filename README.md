@@ -85,7 +85,7 @@ PRIVATE_LIMITED_COMPANY;\
 
 ## Диаграммы
 
-![Диаграмма классов](files/Diagramm.png)
+![Диаграмма классов](files/Diagramma.png)
 
 ## Запуск и управление проектом
 
