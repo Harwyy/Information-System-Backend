@@ -107,3 +107,17 @@ mvn spotless:check
 ```bash
 mvn checkstyle:checkstyle
 ```
+
+### Запуск приложения
+```bash
+gradle bootRun
+```
+### Форматирование кода
+```bash
+gradle codeFormat
+```
+
+### Проверка стиля кода
+```bash
+gradle codeFormatCheck
+```
