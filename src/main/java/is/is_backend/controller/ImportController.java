@@ -50,8 +50,7 @@ public class ImportController {
 
     @Operation(
             summary = "Получение истории импортов",
-            description =
-                    "Возвращает пагинированный список всех операций импорта")
+            description = "Возвращает пагинированный список всех операций импорта")
     @ApiResponses(
             value = {
                 @ApiResponse(
