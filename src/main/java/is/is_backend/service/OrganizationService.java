@@ -7,6 +7,7 @@ import is.is_backend.dto.organizationDto.OrganizationResponseDTO;
 import is.is_backend.exception.MyException;
 import is.is_backend.mapper.OrganizationMapper;
 import is.is_backend.models.Organization;
+import is.is_backend.models.enums.OrganizationType;
 import is.is_backend.repository.OrganizationRepository;
 import is.is_backend.specification.OrganizationSpecification;
 import lombok.AllArgsConstructor;
@@ -27,6 +28,7 @@ public class OrganizationService {
 
     public OrganizationResponseDTO createOrganization(OrganizationRequestDTO organizationRequestDTO) {
         Organization organization = organizationBuilder.buildFromRequest(organizationRequestDTO);
+        validateConstraints(organization, null);
         Organization savedOrganization = organizationRepository.save(organization);
         notificationService.notifyAllSubscribers();
         return OrganizationMapper.toResponseDTO(savedOrganization);
@@ -37,6 +39,7 @@ public class OrganizationService {
                 .findById(id)
                 .orElseThrow(() -> new MyException("Organization not found with id: " + id, HttpStatus.NOT_FOUND));
         Organization organization = organizationBuilder.buildFromRequest(organizationRequestDTO);
+        validateConstraints(organization, id);
         updatedOrganization.setName(organization.getName());
         updatedOrganization.setCoordinates(organization.getCoordinates());
         updatedOrganization.setOfficialAddress(organization.getOfficialAddress());
@@ -70,5 +73,59 @@ public class OrganizationService {
         return organizationRepository
                 .findById(id)
                 .orElseThrow(() -> new MyException("Organization not found with id: " + id, HttpStatus.NOT_FOUND));
+    }
+
+    private void validateConstraints(Organization organization, Long id) {
+        if (id != null) {
+            validateUniqueFullName(organization.getFullName(), id);
+            validateUniqueZipCodeAndType(organization.getPostalAddress().getZipCode(), organization.getType(), id);
+            validateAnnualTurnover(organization.getAnnualTurnover(), organization.getEmployeesCount());
+        } else {
+            validateUniqueFullName(organization.getFullName(), null);
+            validateUniqueZipCodeAndType(organization.getPostalAddress().getZipCode(), organization.getType(), null);
+            validateAnnualTurnover(organization.getAnnualTurnover(), organization.getEmployeesCount());
+        }
+    }
+
+    private void validateUniqueFullName(String fullName, Long excludeId) {
+        boolean exists;
+
+        if (excludeId != null) {
+            exists = organizationRepository.existsByFullNameAndIdNot(fullName, excludeId);
+        } else {
+            exists = organizationRepository.existsByFullName(fullName);
+        }
+
+        if (exists) {
+            throw new MyException("Organization with fullName " + fullName + " already exists", HttpStatus.CONFLICT);
+        }
+    }
+
+    private void validateUniqueZipCodeAndType(String zipCode, OrganizationType type, Long excludeId) {
+        if (zipCode == null) return;
+
+        boolean exists;
+        if (excludeId != null) {
+            exists = organizationRepository.existsByPostalAddressZipCodeAndTypeAndIdNot(zipCode, type, excludeId);
+        } else {
+            exists = organizationRepository.existsByPostalAddressZipCodeAndType(zipCode, type);
+        }
+
+        if (exists) {
+            throw new MyException(
+                    "Organization of type '" + type + "' already exists with zip code: " + zipCode,
+                    HttpStatus.CONFLICT);
+        }
+    }
+
+    private void validateAnnualTurnover(Double annualTurnover, Integer employeesCount) {
+        if (employeesCount == null) return;
+
+        Double minAnnualTurnover = (double) ((employeesCount + 1) * 12 * 19500);
+        if (annualTurnover < minAnnualTurnover) {
+            throw new MyException(
+                    "Annual turnover is less than the subsistence level, should be greater than " + minAnnualTurnover,
+                    HttpStatus.CONFLICT);
+        }
     }
 }

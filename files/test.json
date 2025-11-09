@@ -10,14 +10,14 @@
         "z": 1
       }
     },
-    "annualTurnover": 123,
+    "annualTurnover": 936001,
     "employeesCount": 3,
     "rating": 4,
-    "fullName": "FIRST",
+    "fullName": "SECOND",
     "type": "TRUST",
     "postalAddressRequest":
     {
-      "zipCode": "123",
+      "zipCode": "1234",
       "locationRequest": {
         "z": 1
       }
@@ -34,7 +34,7 @@
         "z": 1
       }
     },
-    "annualTurnover": 123,
+    "annualTurnover": 936001,
     "employeesCount": 3,
     "rating": 4,
     "fullName": "FIRST",
