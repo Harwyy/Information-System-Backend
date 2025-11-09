@@ -1,0 +1,31 @@
+{
+  "name": "Atom",
+  "coordinatesRequest": {
+    "x": 1,
+    "y": 1
+  },
+  "creationDate": "",
+  "officialAddressRequest": {
+    "zipCode": "289",
+    "locationRequest": {
+      "x": 1,
+      "y": 1,
+      "z": 1,
+      "name": "Official address"
+    }
+  },
+  "annualTurnover": 10000000,
+  "employeesCount": 30,
+  "rating": 5,
+  "fullName": "Atom Corporation",
+  "type": "TRUST",
+  "postalAddressRequest": {
+    "zipCode": "515",
+    "locationRequest": {
+      "x": 1,
+      "y": 1,
+      "z": 1,
+      "name": "Postal address"
+    }
+  }
+}

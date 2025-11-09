@@ -1,0 +1,50 @@
+[
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest":
+    {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "SECOND",
+    "type": "TRUST",
+    "postalAddressRequest":
+    {
+      "zipCode": "1234",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest":
+    {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "FIRST",
+    "type": "TRUST",
+    "postalAddressRequest":
+    {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  }
+]
