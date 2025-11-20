@@ -121,3 +121,8 @@ gradle codeFormat
 ```bash
 gradle codeFormatCheck
 ```
+
+### JMETER
+```bash
+C:\...\apache-jmeter-5.6.3\bin\jmeter.bat -n -t .\file.jmx -l logFile.jtl -e -o .\folderForResult
+```
