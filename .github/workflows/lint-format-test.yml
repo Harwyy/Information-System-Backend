@@ -2,9 +2,9 @@ name: Lint, Format, Test
 
 on:
   push:
-    branches: [ "main", "lab-one-pr"]
+    branches: [ "main", "lab-one-pr", "lab-two-pr"]
   pull_request:
-    branches: [ "main", "lab-one-pr"]
+    branches: [ "main", "lab-one-pr", "lab-two-pr"]
 
 jobs:
   lint-format-test:
