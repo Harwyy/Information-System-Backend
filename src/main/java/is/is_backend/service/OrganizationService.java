@@ -1,6 +1,7 @@
 package is.is_backend.service;
 
 import is.is_backend.builder.OrganizationBuilder;
+import is.is_backend.constraint.OrganizationGeoBusinessConstraint;
 import is.is_backend.dto.organizationDto.OrganizationPageRequestDTO;
 import is.is_backend.dto.organizationDto.OrganizationRequestDTO;
 import is.is_backend.dto.organizationDto.OrganizationResponseDTO;
@@ -25,6 +26,7 @@ public class OrganizationService {
     private final OrganizationRepository organizationRepository;
     private final OrganizationBuilder organizationBuilder;
     private final NotificationService notificationService;
+    private final OrganizationGeoBusinessConstraint organizationGeoBusinessConstraint;
 
     public OrganizationResponseDTO createOrganization(OrganizationRequestDTO organizationRequestDTO) {
         Organization organization = organizationBuilder.buildFromRequest(organizationRequestDTO);
@@ -80,10 +82,12 @@ public class OrganizationService {
             validateUniqueFullName(organization.getFullName(), id);
             validateUniqueZipCodeAndType(organization.getPostalAddress().getZipCode(), organization.getType(), id);
             validateAnnualTurnover(organization.getAnnualTurnover(), organization.getEmployeesCount());
+            organizationGeoBusinessConstraint.validateGovernmentConstraints(organization);
         } else {
             validateUniqueFullName(organization.getFullName(), null);
             validateUniqueZipCodeAndType(organization.getPostalAddress().getZipCode(), organization.getType(), null);
             validateAnnualTurnover(organization.getAnnualTurnover(), organization.getEmployeesCount());
+            organizationGeoBusinessConstraint.validateGovernmentConstraints(organization);
         }
     }
 
