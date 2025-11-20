@@ -12,8 +12,6 @@ import is.is_backend.models.enums.OrganizationType;
 import is.is_backend.repository.OrganizationRepository;
 import is.is_backend.specification.OrganizationSpecification;
 import lombok.AllArgsConstructor;
-import org.springframework.dao.CannotSerializeTransactionException;
-import org.springframework.dao.PessimisticLockingFailureException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -25,8 +23,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.io.IOException;
-
 @Service
 @AllArgsConstructor
 public class OrganizationService {
@@ -36,10 +32,7 @@ public class OrganizationService {
     private final NotificationService notificationService;
     private final OrganizationGeoBusinessConstraint organizationGeoBusinessConstraint;
 
-    @Retryable(
-            maxAttempts = 5,
-            backoff = @Backoff(delay = 100, multiplier = 2)
-    )
+    @Retryable(maxAttempts = 5, backoff = @Backoff(delay = 100, multiplier = 2))
     @Transactional(isolation = Isolation.SERIALIZABLE)
     public OrganizationResponseDTO createOrganization(OrganizationRequestDTO organizationRequestDTO) {
         Organization organization = organizationBuilder.buildFromRequest(organizationRequestDTO);
@@ -49,10 +42,7 @@ public class OrganizationService {
         return OrganizationMapper.toResponseDTO(savedOrganization);
     }
 
-    @Retryable(
-            maxAttempts = 5,
-            backoff = @Backoff(delay = 100, multiplier = 2)
-    )
+    @Retryable(maxAttempts = 5, backoff = @Backoff(delay = 100, multiplier = 2))
     @Transactional(isolation = Isolation.SERIALIZABLE)
     public OrganizationResponseDTO updateOrganization(Long id, OrganizationRequestDTO organizationRequestDTO) {
         Organization updatedOrganization = organizationRepository

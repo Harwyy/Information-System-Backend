@@ -30,10 +30,7 @@ public class ImportService {
     private static final int ERROR_STATUS = 1;
     private static final int MAX_SIZE = 100;
 
-    @Retryable(
-            maxAttempts = 5,
-            backoff = @Backoff(delay = 100, multiplier = 2)
-    )
+    @Retryable(maxAttempts = 5, backoff = @Backoff(delay = 100, multiplier = 2))
     @Transactional(isolation = Isolation.SERIALIZABLE)
     public ImportHistory processImport(MultipartFile file) {
         if (file.isEmpty()) {
