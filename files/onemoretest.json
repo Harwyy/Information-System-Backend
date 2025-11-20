@@ -1,0 +1,662 @@
+[
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "1",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "1",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "2",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "2",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "3",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "3",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "4",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "4",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "5",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "5",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "6",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "6",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "7",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "7",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "8",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "8",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "9",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "9",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "10",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "10",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "11",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "11",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "12",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "12",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "13",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "13",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "14",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "14",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "15",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "15",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "16",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "16",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "17",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "17",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "18",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "18",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "19",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "19",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "20",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "20",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "21",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "21",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "22",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "22",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "23",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "23",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "24",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "24",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "25",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "25",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "26",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "26",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "27",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "27",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "28",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "28",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "29",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "29",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  },
+  {
+    "name": "12345",
+    "coordinatesRequest": {},
+    "creationDate": "",
+    "officialAddressRequest": {
+      "zipCode": "123",
+      "locationRequest": {
+        "z": 1
+      }
+    },
+    "annualTurnover": 936001,
+    "employeesCount": 3,
+    "rating": 4,
+    "fullName": "30",
+    "type": "TRUST",
+    "postalAddressRequest": {
+      "zipCode": "30",
+      "locationRequest": {
+        "z": 1
+      }
+    }
+  }
+]
