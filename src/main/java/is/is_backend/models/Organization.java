@@ -7,7 +7,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Cache;
+
 
 @Entity
 @Table(name = "organizations")
@@ -15,6 +18,8 @@ import org.hibernate.annotations.CreationTimestamp;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "organizations")
 public class Organization {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -29,6 +34,7 @@ public class Organization {
             optional = false)
     @JoinColumn(name = "coordinates_id", nullable = false)
     @NotNull(message = "Coordinates cannot be null")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "coordinates")
     private Coordinates coordinates;
 
     @CreationTimestamp
@@ -40,6 +46,7 @@ public class Organization {
             optional = false)
     @JoinColumn(name = "official_address_id", nullable = false)
     @NotNull(message = "Official address cannot be null")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "addresses")
     private Address officialAddress;
 
     @Column(name = "annual_turnover", nullable = false)
@@ -69,5 +76,6 @@ public class Organization {
             optional = false)
     @JoinColumn(name = "postal_address_id", nullable = false)
     @NotNull(message = "Postal address cannot be null")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "addresses")
     private Address postalAddress;
 }

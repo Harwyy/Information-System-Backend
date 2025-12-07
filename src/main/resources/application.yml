@@ -21,5 +21,12 @@ spring:
     properties:
       hibernate:
         format_sql: true
+        generate_statistics: true
+        cache:
+          use_second_level_cache: true
+          use_query_cache: true
+        jcache:
+          provider: org.ehcache.jsr107.EhcacheCachingProvider
+
 server:
   port: 8080
