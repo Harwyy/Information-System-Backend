@@ -1,6 +1,7 @@
 package is.is_backend.service;
 
 import is.is_backend.builder.OrganizationBuilder;
+import is.is_backend.constraint.OrganizationGeoBusinessConstraint;
 import is.is_backend.dto.organizationDto.OrganizationPageRequestDTO;
 import is.is_backend.dto.organizationDto.OrganizationRequestDTO;
 import is.is_backend.dto.organizationDto.OrganizationResponseDTO;
@@ -16,7 +17,11 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
+import org.springframework.retry.annotation.Backoff;
+import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @AllArgsConstructor
@@ -25,7 +30,10 @@ public class OrganizationService {
     private final OrganizationRepository organizationRepository;
     private final OrganizationBuilder organizationBuilder;
     private final NotificationService notificationService;
+    private final OrganizationGeoBusinessConstraint organizationGeoBusinessConstraint;
 
+    @Retryable(maxAttempts = 5, backoff = @Backoff(delay = 100, multiplier = 2))
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public OrganizationResponseDTO createOrganization(OrganizationRequestDTO organizationRequestDTO) {
         Organization organization = organizationBuilder.buildFromRequest(organizationRequestDTO);
         validateConstraints(organization, null);
@@ -34,6 +42,8 @@ public class OrganizationService {
         return OrganizationMapper.toResponseDTO(savedOrganization);
     }
 
+    @Retryable(maxAttempts = 5, backoff = @Backoff(delay = 100, multiplier = 2))
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public OrganizationResponseDTO updateOrganization(Long id, OrganizationRequestDTO organizationRequestDTO) {
         Organization updatedOrganization = organizationRepository
                 .findById(id)
@@ -80,10 +90,12 @@ public class OrganizationService {
             validateUniqueFullName(organization.getFullName(), id);
             validateUniqueZipCodeAndType(organization.getPostalAddress().getZipCode(), organization.getType(), id);
             validateAnnualTurnover(organization.getAnnualTurnover(), organization.getEmployeesCount());
+            organizationGeoBusinessConstraint.validateGovernmentConstraints(organization);
         } else {
             validateUniqueFullName(organization.getFullName(), null);
             validateUniqueZipCodeAndType(organization.getPostalAddress().getZipCode(), organization.getType(), null);
             validateAnnualTurnover(organization.getAnnualTurnover(), organization.getEmployeesCount());
+            organizationGeoBusinessConstraint.validateGovernmentConstraints(organization);
         }
     }
 

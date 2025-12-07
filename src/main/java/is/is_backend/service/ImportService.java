@@ -10,7 +10,10 @@ import java.io.InputStream;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.retry.annotation.Backoff;
+import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -27,7 +30,8 @@ public class ImportService {
     private static final int ERROR_STATUS = 1;
     private static final int MAX_SIZE = 100;
 
-    @Transactional
+    @Retryable(maxAttempts = 5, backoff = @Backoff(delay = 100, multiplier = 2))
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public ImportHistory processImport(MultipartFile file) {
         if (file.isEmpty()) {
             throw new MyException("File cant be empty.", HttpStatus.BAD_REQUEST);
