@@ -25,7 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 @RequestMapping("/api/import")
 @RequiredArgsConstructor
-@Tag(name = "Import", description = "API for data import with file storage")
+@Tag(name = "Import", description = "API для управления импортом данных организаций из JSON файлов")
 public class ImportController {
 
     private final ImportService importService;
