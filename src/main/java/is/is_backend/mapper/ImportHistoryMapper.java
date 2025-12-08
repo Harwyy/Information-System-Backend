@@ -8,11 +8,20 @@ import org.springframework.stereotype.Component;
 public class ImportHistoryMapper {
 
     public ImportHistoryResponseDTO toResponseDTO(ImportHistory importHistory) {
-        ImportHistoryResponseDTO dto = new ImportHistoryResponseDTO();
-        dto.setId(importHistory.getId());
-        dto.setCreationDate(importHistory.getCreationDate());
-        dto.setStatus(importHistory.getStatus());
-        dto.setCounter(importHistory.getCounter());
-        return dto;
+        if (importHistory == null) {
+            return null;
+        }
+
+        return ImportHistoryResponseDTO.builder()
+                .id(importHistory.getId())
+                .creationDate(importHistory.getCreationDate())
+                .status(
+                        importHistory.getStatus() != null
+                                ? importHistory.getStatus().name()
+                                : null)
+                .counter(importHistory.getCounter())
+                .fileObjectName(importHistory.getFileObjectName())
+                .fileUrl(importHistory.getFileUrl())
+                .build();
     }
 }

@@ -4,8 +4,7 @@ import is.is_backend.dto.importHistoryDto.ImportHistoryResponseDTO;
 import is.is_backend.mapper.ImportHistoryMapper;
 import is.is_backend.models.ImportHistory;
 import is.is_backend.repository.ImportHistoryRepository;
-import java.time.ZonedDateTime;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -15,23 +14,15 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class ImportHistoryService {
 
     private final ImportHistoryRepository importHistoryRepository;
     private final ImportHistoryMapper importHistoryMapper;
 
     @Transactional(propagation = Propagation.REQUIRES_NEW)
-    public void saveImportHistory(ImportHistory importHistory, int status) {
-        importHistory.setStatus(status);
-        importHistoryRepository.save(importHistory);
-    }
-
-    public ImportHistory createImportHistory() {
-        ImportHistory importHistory = new ImportHistory();
-        importHistory.setCreationDate(ZonedDateTime.now());
-        importHistory.setCounter(0);
-        return importHistory;
+    public ImportHistory saveImportHistory(ImportHistory importHistory) {
+        return importHistoryRepository.save(importHistory);
     }
 
     public Page<ImportHistoryResponseDTO> getImportHistoryWithPagination(int page, int size) {
@@ -39,5 +30,14 @@ public class ImportHistoryService {
         Pageable pageable = PageRequest.of(page, size, sort);
         Page<ImportHistory> importHistoryPage = importHistoryRepository.findAll(pageable);
         return importHistoryPage.map(importHistoryMapper::toResponseDTO);
+    }
+
+    public ImportHistory prepareImportHistory(String fileObjectName) {
+        return ImportHistory.builder()
+                .counter(0)
+                .status(ImportHistory.ImportStatus.PENDING)
+                .fileObjectName(fileObjectName)
+                .fileUrl(null)
+                .build();
     }
 }

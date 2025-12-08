@@ -95,7 +95,7 @@ mvn spring-boot:run
 ```
 ### Форматирование кода
 ```bash
-mvn spotless:apply
+
 ```
 
 ### Проверка стиля кода

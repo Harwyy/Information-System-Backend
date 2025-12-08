@@ -27,6 +27,11 @@ spring:
           use_query_cache: true
         jcache:
           provider: org.ehcache.jsr107.EhcacheCachingProvider
+minio:
+  endpoint: http://localhost:9000
+  access-key: admin
+  secret-key: admin123
+  bucket: imports
 
 server:
   port: 8080
