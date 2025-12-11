@@ -4,6 +4,8 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+
+import lombok.Getter;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -17,7 +19,8 @@ public class CacheAspect {
     @PersistenceContext
     private EntityManager entityManager;
 
-    private boolean enabled = true;
+    @Getter
+    private Boolean enabled = true;
 
     @Around("execution(* is.is_backend.service.*.get*(..))")
     public Object logCache(ProceedingJoinPoint joinPoint) throws Throwable {
@@ -48,4 +51,9 @@ public class CacheAspect {
 
         return result;
     }
+
+    public void changeEnabled() {
+        enabled = !enabled;
+    }
+
 }
