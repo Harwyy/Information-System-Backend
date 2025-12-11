@@ -4,7 +4,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
 import lombok.Getter;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -55,5 +54,4 @@ public class CacheAspect {
     public void changeEnabled() {
         enabled = !enabled;
     }
-
 }
