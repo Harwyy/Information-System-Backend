@@ -13,7 +13,7 @@ public class CacheLoggingController {
 
     private final CacheAspect cacheAspect;
 
-    @GetMapping()
+    @GetMapping
     public String set() {
         cacheAspect.changeEnabled();
         return "Cache logging is now " + (cacheAspect.getEnabled() ? "enabled" : "disabled");
