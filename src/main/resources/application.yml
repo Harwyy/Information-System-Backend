@@ -17,7 +17,7 @@ spring:
     database-platform: ${DB_DIALECT:org.hibernate.dialect.H2Dialect}
     hibernate:
       ddl-auto: create-drop
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
         format_sql: true
@@ -35,3 +35,7 @@ minio:
 
 server:
   port: 8080
+
+logging:
+  level:
+    org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: WARN
