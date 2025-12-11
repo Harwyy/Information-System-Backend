@@ -15,5 +15,4 @@ public class StorageCleanupScheduler {
     public void scheduledCleanup() {
         minioService.cleanupOldPendingFiles();
     }
-
 }

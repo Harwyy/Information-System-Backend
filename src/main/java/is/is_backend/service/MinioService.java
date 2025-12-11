@@ -31,23 +31,19 @@ public class MinioService {
         try {
             LocalDateTime cutoffTime = LocalDateTime.now().minus(PENDING_MAX_AGE);
 
-            Iterable<Result<Item>> results = minioClient.listObjects(
-                    ListObjectsArgs.builder()
-                            .bucket(minioConfig.getBucket())
-                            .prefix("imports/")
-                            .recursive(true)
-                            .build()
-            );
+            Iterable<Result<Item>> results = minioClient.listObjects(ListObjectsArgs.builder()
+                    .bucket(minioConfig.getBucket())
+                    .prefix("imports/")
+                    .recursive(true)
+                    .build());
 
             for (Result<Item> result : results) {
                 Item item = result.get();
                 String objectName = item.objectName();
-                StatObjectResponse stat = minioClient.statObject(
-                        StatObjectArgs.builder()
-                                .bucket(minioConfig.getBucket())
-                                .object(objectName)
-                                .build()
-                );
+                StatObjectResponse stat = minioClient.statObject(StatObjectArgs.builder()
+                        .bucket(minioConfig.getBucket())
+                        .object(objectName)
+                        .build());
                 Map<String, String> metadata = stat.userMetadata();
                 String status = metadata.get("status");
                 String uploadTimeStr = metadata.get("upload-time");
@@ -61,8 +57,7 @@ public class MinioService {
             }
 
         } catch (Exception e) {
-            throw new MyException("Failed to cleanup old pending files",
-                    HttpStatus.INTERNAL_SERVER_ERROR);
+            throw new MyException("Failed to cleanup old pending files", HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
         return deletedCount;
