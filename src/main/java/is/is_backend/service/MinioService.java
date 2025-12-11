@@ -2,9 +2,11 @@ package is.is_backend.service;
 
 import io.minio.*;
 import io.minio.http.Method;
+import io.minio.messages.Item;
 import is.is_backend.config.MinioConfig;
 import is.is_backend.exception.MyException;
 import java.io.InputStream;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.HashMap;
@@ -21,6 +23,50 @@ public class MinioService {
 
     private final MinioClient minioClient;
     private final MinioConfig minioConfig;
+
+    private static final Duration PENDING_MAX_AGE = Duration.ofDays(1);
+
+    public int cleanupOldPendingFiles() {
+        int deletedCount = 0;
+        try {
+            LocalDateTime cutoffTime = LocalDateTime.now().minus(PENDING_MAX_AGE);
+
+            Iterable<Result<Item>> results = minioClient.listObjects(
+                    ListObjectsArgs.builder()
+                            .bucket(minioConfig.getBucket())
+                            .prefix("imports/")
+                            .recursive(true)
+                            .build()
+            );
+
+            for (Result<Item> result : results) {
+                Item item = result.get();
+                String objectName = item.objectName();
+                StatObjectResponse stat = minioClient.statObject(
+                        StatObjectArgs.builder()
+                                .bucket(minioConfig.getBucket())
+                                .object(objectName)
+                                .build()
+                );
+                Map<String, String> metadata = stat.userMetadata();
+                String status = metadata.get("status");
+                String uploadTimeStr = metadata.get("upload-time");
+                if ("PENDING".equals(status) && uploadTimeStr != null) {
+                    LocalDateTime uploadTime = LocalDateTime.parse(uploadTimeStr);
+                    if (uploadTime.isBefore(cutoffTime)) {
+                        deleteFile(objectName);
+                        deletedCount++;
+                    }
+                }
+            }
+
+        } catch (Exception e) {
+            throw new MyException("Failed to cleanup old pending files",
+                    HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        return deletedCount;
+    }
 
     public String saveFile(MultipartFile file, String importId) {
         try {
